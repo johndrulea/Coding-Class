@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="warning">
+    <ion-title>
+      Feed
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+<ion-card *ngFor="let message of displayMessage">
+
+     <ion-card-header>
+      <ion-card-title>{{message.from}}</ion-card-title>
+      <ion-card-subtitle>{{message.text}}</ion-card-subtitle>
+      <span>{{message.createdOn | date: 'MM/dd/yyyy'}}</span>
+  </ion-card-header>
+
+  <ion-card-content *ngIf="message.imageUrl" >
+  <ion-img src="{{message.imageUrl}}"></ion-img>
+  </ion-card-content>
+
+
+</ion-card>
+
+</ion-content>
